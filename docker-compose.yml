@@ -18,7 +18,7 @@ services:
    - "8000:8000"
   command: gunicorn backend.wsgi:application --workers=5 --bind 0.0.0.0:8000
   volumes:
-   - static_volume:/django_site/staticfiles
+   - static_volume:/django_site/static
   extra_hosts:
    - "host.docker.internal:host-gateway"
 
@@ -31,7 +31,7 @@ services:
    - ./nginx/cert.pem:/etc/nginx/cert.pem
    - ./nginx/key.pem:/etc/nginx/key.pem
    - dist:/html
-   - static_volume:/staticfiles
+   - static_volume:/static
   ports:
    - "80:80"
    - "443:443"
