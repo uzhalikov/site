@@ -7,15 +7,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.getenv('SECRET_KEY')
 DEBUG = False
-
-ALLOWED_HOSTS = ['halikov.com']
-CSRF_TRUSTED_ORIGINS = ['https://halikov.com', 'http://halikov.com']
+HOST = 'halikov.com'
+ALLOWED_HOSTS = [HOST]
+CSRF_TRUSTED_ORIGINS = [f'https://{HOST}', f'http://{HOST}']
 
 CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True
 
 CORS_ALLOWED_ORIGINS = [
-    'https://halikov.com',
+    f'https://{HOST}',
 ]
 
 
@@ -102,9 +102,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
 
-STATIC_ROOT =  os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_ROOT = os.path.join(BASE_DIR, MEDIA_URL)
-
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
 AUTH_USER_MODEL = 'users.User'
