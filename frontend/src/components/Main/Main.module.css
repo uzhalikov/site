@@ -1,0 +1,14 @@
+.main, .main__mobile{
+    display: flex;
+    flex-direction: column;
+    width: 85vw;
+    position: absolute;
+    right: 0;
+}
+.main__mobile{
+    width: 100vw;
+    font-size: 14px;
+}
+*::-webkit-scrollbar {
+	width: 0;
+}

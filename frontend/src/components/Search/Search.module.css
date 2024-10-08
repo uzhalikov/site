@@ -1,0 +1,16 @@
+.search__form{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    border: 1px solid;
+    border-radius: 5px;
+    padding: 5px;
+}
+.search__form input{
+    padding-left: 2%;
+    height: 100%;
+}
+.search__form img{
+    width: 25px;
+    cursor: pointer;
+}

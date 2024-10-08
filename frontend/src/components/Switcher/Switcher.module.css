@@ -1,0 +1,23 @@
+.switcher{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+.arrow{
+    color: rgba(6, 6, 15, .4) !important;
+    transition: 0.6s;
+    font-size: 35px;
+    display: block;
+    width: 35px;
+}
+.arrow:hover{
+    color: #d4a259 !important;
+    transition: 0.6s;
+}
+.title{
+    font-weight: 900;
+    font-size: 16px;
+    height: 29px;
+    line-height: 2.8;
+}

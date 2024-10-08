@@ -1,0 +1,60 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+.field, .button{
+    padding: 8px;
+    border-radius: 5px;
+}
+.field{
+    width: 100%;
+    padding-left: 2%;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+}
+.button{
+    background: #eee;
+    width: 200px;
+    pointer-events: none;
+}
+.active__button{
+    background: #d4a259;
+    color: #fff;
+    pointer-events: all;
+}
+.field__container{
+    width: 50%;
+    position: relative;
+}
+.label{
+    position: absolute;    
+    background: #fff;
+    top: 25%;
+    left: 2%;
+    font-size: 14px;
+    color: #aaa;
+    word-spacing: 2px;
+    letter-spacing: 1.5px;
+    transition: 0.6s;
+    pointer-events: none;
+    padding: 2px;
+}
+.field:focus~.label,
+.field:not(:placeholder-shown)~.label{
+    top: -30%;
+    color: orange;
+    background: #fff;
+    transition: 0.6s;
+}
+
+.message{
+    color: green;
+    text-align: center;
+}
+@media (max-width: 768px) {
+    .field__container{
+        width: 100%;
+    }
+}
