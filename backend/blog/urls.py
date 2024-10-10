@@ -1,6 +1,17 @@
 from django.urls import path
 from .views import *
 from .api import *
+from .sitemaps import *
+from django.contrib.sitemaps.views import sitemap
+
+sitemaps = {
+    'about': AboutViewSitemap,
+    'post': PostViewSitemap,
+    'posts': PostPreviewViewSitemap,
+    'poem': PoemViewSitemap,
+    'poems': PoemPreviewViewSitemap,
+    'questions': QuestionViewSitemap
+}
 
 urlpatterns = [
     path('', about, name='about'),
@@ -11,4 +22,5 @@ urlpatterns = [
     path('poem/<int:poem_id>', show_poem, name='poem'),
     path('api/create_question', create_question),
     path('api/questions', get_all_questions),
+    path('sitemap.xml', sitemap, {'sitemaps': sitemaps}),
 ]

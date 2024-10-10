@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'blog.apps.BlogConfig',
     'taggit',
+    'django.contrib.sitemaps',
 ]
 
 MIDDLEWARE = [
