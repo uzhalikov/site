@@ -1,0 +1,37 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block head %}
+<meta name="description" content="{{ description }}">
+<link rel="stylesheet" href="{% static 'blog/css/questions.css' %}">
+<script src='https://www.google.com/recaptcha/api.js'></script>
+{% endblock %}
+{% block title %}{{ title }} - halikov.com | Про IT, поэзию и жизнь{% endblock %}
+
+{% block body %}
+    <div class="questions">
+        <section class="questions__section">
+            <span class="section__item section__item__active" id="all">Все вопросы</span>
+            <span class="section__item" id="ask">Задать вопрос</span>
+        </section>
+        <form method="post" id="form">
+            {% csrf_token %}
+            <div class="form__content">
+                {% for question in questions %}
+                    <div class="all_question__container">
+                        <div class="all_question">
+                            <span class="all_question__label">Вопрос:</span>
+                            <p class="all_question__name">{{ question.author }}: <span class="all_question__text">{{ question.question }}</span></p>
+                        </div>
+                        <div class="all_answer">
+                            <span class="all_question__label">Ответ:</span>
+                            <p>{{ question.answer }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+
+        </form>
+    </div>
+    <script src="{% static 'blog/js/questions.js' %}"></script>
+{% endblock %}

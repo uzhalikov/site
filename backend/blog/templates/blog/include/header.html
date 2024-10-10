@@ -1,0 +1,15 @@
+{% load static %}
+{% load template_tags %}
+
+<header class="header">
+    <H1 class="header__h1"><a href="{% if prev_url %}/{{prev_url}}{% endif %}">{{ title }}</a></H1>
+    <div class="header__flex">
+        {% if request.path == 'posts' %}
+            <div class="header__search">
+                <input autoComplete='off' name='filter' type="text" placeholder='Поиск'/>
+                <img src="{% static 'blog/images/default/search.svg' %}" alt="Search"/>
+            </div>
+        {% endif %}
+        <img class="header__button" src="{% static 'blog/images/default/menu.svg' %}"/>
+    </div>
+</header>

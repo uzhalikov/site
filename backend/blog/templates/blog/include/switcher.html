@@ -1,0 +1,7 @@
+{% load template_tags %}
+
+<section class="switcher">
+    <a class="arrow" href="/{{ request.path|split:'/'|get_elem:'1' }}/{{item.prev_p}}">{% if item.prev_p %}←{% endif %}</a>
+    <h2 class="title">{{ item.title|default:'***' }}</h2>
+    <a class="arrow" href="/{{ request.path|split:'/'|get_elem:'1' }}/{{item.next_p}}">{% if item.next_p %}→{% endif %}</a>
+</section>

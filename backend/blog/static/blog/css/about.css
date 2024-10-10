@@ -1,0 +1,34 @@
+.about{
+    padding: 5px;
+    margin: 0 auto;
+}
+.about__block{
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    max-width: 1000px;
+    flex-direction: column;
+    text-align: center;
+}
+.about__photo{
+    width: 35%;
+    border-radius: 10px;
+}
+.about__info{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10px;
+}
+.about__link{
+    color: #d4a259 !important;
+}
+.about__info p{
+    letter-spacing: 2px;
+    word-spacing: 3px;
+}
+@media(max-width: 530px) {
+    .about__photo{
+        border-radius: 50%;
+    }
+}

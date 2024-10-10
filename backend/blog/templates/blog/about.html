@@ -1,0 +1,25 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block head %}
+<meta name="description" content="{{ description }}">
+<link rel="stylesheet" href="{% static 'blog/css/about.css' %}">
+{% endblock %}
+{% block title %}{{ title }} - halikov.com | Про IT, поэзию и жизнь{% endblock %}
+
+{% block body %}
+<div class="about">
+    <div class="about__block">
+        <img class="about__photo" src='{% static "blog/images/default/me.jpg" %}' alt="Owner photo" />
+        <div class="about__info">
+            <p>Привет!</p>
+            <p>Меня зовут Ульфат Халиков, я живу в Санкт-Перебурге.</p>
+            <p>Последний год я работаю Web разработчиком.</p>
+            <p>Я занимаюсь разработкой сайтов, telegram ботов, изучением английского языка, а еще иногда пишу стихи.</p>
+            <p>Здесь я буду выкладывать советы для начинающих разработчиков, свои стихи, а также информацию о проектах, в которых принимаю участие.</p>
+            <p>Также, я готов ответить на все ваши вопросы, которые вы можете задать на соответствующей <a class="about__link" href="/questions">странице</a>, либо лично, через социальные сети.</p>
+        </div>
+        {% include "blog/include/contacts.html" %}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% load static %}
+
+<nav class="nav">
+    <button class="nav__close">&times;</button>
+    <img class="nav__logo" src="{% static 'blog/images/default/me.jpg' %}" alt="Owner photo"/>            
+    <h2 class="nav__author">Ulfat Halikov</h2>
+    <div class="nav__list">
+        <a class="nav__item {% if request.path == '/' %}active__item{% endif %}" href="/">Об авторе</a>
+        <a class="nav__item {% if 'post' in request.path %}active__item{% endif %}" href="/posts">Статьи <span class="unread__posts">{% if unread %}[{{unread}}]{% endif %}</span></a>
+        <a class="nav__item {% if 'poem' in request.path %}active__item{% endif %}" href="/poems">Стихи</a>
+        <a class="nav__item {% if 'questions' in request.path %}active__item{% endif %}" href="/questions">Вопросы</a>
+    </div>
+    {% include "blog/include/contacts.html" %}
+</nav>

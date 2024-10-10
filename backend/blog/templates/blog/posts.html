@@ -1,0 +1,27 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block head %}
+<meta name="description" content="{{ description }}">
+<link rel="stylesheet" href="{% static 'blog/css/posts.css' %}">
+{% endblock %}
+{% block title %}{{ title }} - halikov.com | Про IT, поэзию и жизнь{% endblock %}
+
+{% block body %}
+<div class="posts">
+    {% for post in posts %}
+        <a class="post" href="{% url 'post' post.slug %}">           
+            <div class="post__main">
+                <h2 class="post__title">{{ post.title }} {% if not post.read %}<span class="post__new">new</span>{% endif %}</h2>
+                <div class="post__container">
+                    <div class="post__text">{{ post.post }}</div>
+                    <div class="post__info">
+                        <span class="post__author">{{ post.author }}</span>
+                        <span>{{ post.created }}</span>
+                    </div>
+                </div>
+            </div>
+        </a>
+    {% endfor %}
+</div>
+{% endblock %}

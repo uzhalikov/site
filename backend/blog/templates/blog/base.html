@@ -1,0 +1,31 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <link rel="stylesheet" href="{% static 'blog/css/include/header.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/css/include/nav.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/css/include/contacts.css' %}">
+
+    <link rel="stylesheet" href="{% static 'blog/css/base.css' %}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'blog/images/default/favicons/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'blog/images/default/favicons/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'blog/images/default/favicons/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'blog/images/default/favicons/site.webmanifest' %}">
+    <meta name="author" content="Халиков Ульфат Жэудатович" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block head %}{% endblock %}
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+    <div class="container">
+        {% include "blog/include/nav.html" %}
+        <main class="base">
+            {% include "blog/include/header.html"  %}
+            {% block body %}{% endblock %}
+        </main>
+    </div>
+    <script src="{% static 'blog/js/base.js' %}"></script>
+</body>
+</html>

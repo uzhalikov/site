@@ -1,0 +1,32 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block head %}
+<meta name="description" content="{{ item.post|slice:':160' }}">
+<link rel="stylesheet" href="{% static 'blog/css/post.css' %}">
+<link rel="stylesheet" href="{% static 'blog/css/include/switcher.css' %}">
+{% endblock %}
+{% block title %}{{ item.title|slice:':40' }} - halikov.com{% endblock %}
+
+{% block body %}
+    <article class="post">
+        {% include "blog/include/switcher.html" %}
+        {% if item.image %}<img class="post__image" src="{{item.image}}" alt="Post image"/>{% endif %}
+        <div class="post__text">{{ item.post }}</div>
+        <div class="post__footer">
+            <div class="post__tags">
+                {% for tag in item.tags %}
+                    <span class="post__tag">{{ tag.name }}</span>
+                {% endfor %}
+            </div>
+            <div class="post__info">
+                <div class="views__block">
+                    <img src="{% static 'blog/images/default/eye.png' %}" alt="Views image" />
+                    <span>{{ item.views }}</span>
+                </div>
+                <span class="post__author">{{ item.author }}</span>
+                <span>{{ item.created }}</span>
+            </div>
+        </div>
+    </article>
+{% endblock %}

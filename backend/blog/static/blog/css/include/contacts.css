@@ -1,0 +1,21 @@
+.contacts__list{
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+.icon{
+    cursor: pointer;
+    width: 25px;
+    height: 25px;
+    filter: grayscale(100);
+    transition: 0.6s;
+}
+.icon:hover{
+    filter: grayscale(0);
+    transition: 0.6s;
+}
+@media(min-width: 768px){
+    .contacts__list{
+        display: none;
+    }
+}

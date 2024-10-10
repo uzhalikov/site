@@ -1,0 +1,22 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block head %}
+<meta name="description" content="{{ description }}">
+<link rel="stylesheet" href="{% static 'blog/css/poems.css' %}">
+{% endblock %}
+{% block title %}{{ title }}{% endblock %}
+
+{% block body %}
+    <div class="poems">
+        {% for poem in poems %}
+            <a class="poem" href="{% url 'poem' poem.id %}">
+                <pre class="poem__text">{{ poem.poem }}</pre>
+                <div class="poem__info">
+                    <p class="poem__author">{{ poem.author }},</p>
+                    <p>{{ poem.created }}</p>
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+{% endblock %}
