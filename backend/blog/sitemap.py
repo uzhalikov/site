@@ -54,3 +54,13 @@ class PoemViewSitemap(Sitemap):
 
     def location(self, item):
         return f'/poem/{item.id}/'
+
+
+sitemaps = {
+    'about': AboutViewSitemap,
+    'post': PostViewSitemap,
+    'posts': PostSitemap,
+    'poem': PoemViewSitemap,
+    'poems': PoemSitemap,
+    'questions': QuestionSitemap
+}

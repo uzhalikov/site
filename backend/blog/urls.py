@@ -1,17 +1,10 @@
 from django.urls import path
 from .views import *
 from .api import *
-from .sitemap import *
+from .sitemap import sitemaps
 from django.contrib.sitemaps.views import sitemap
 
-sitemaps = {
-    'about': AboutViewSitemap,
-    'post': PostViewSitemap,
-    'posts': PostSitemap,
-    'poem': PoemViewSitemap,
-    'poems': PoemSitemap,
-    'questions': QuestionSitemap
-}
+
 
 urlpatterns = [
     path('', about, name='about'),
