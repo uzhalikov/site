@@ -14,8 +14,3 @@
     filter: grayscale(0);
     transition: 0.6s;
 }
-@media(min-width: 768px){
-    .contacts__list{
-        display: none;
-    }
-}
