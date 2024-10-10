@@ -7,10 +7,10 @@ from django.contrib.sitemaps.views import sitemap
 sitemaps = {
     'about': AboutViewSitemap,
     'post': PostViewSitemap,
-    'posts': PostPreviewViewSitemap,
+    'posts': PostSitemap,
     'poem': PoemViewSitemap,
-    'poems': PoemPreviewViewSitemap,
-    'questions': QuestionViewSitemap
+    'poems': PoemSitemap,
+    'questions': QuestionSitemap
 }
 
 urlpatterns = [
