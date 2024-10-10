@@ -35,7 +35,7 @@ class QuestionSitemap(Sitemap):
         return ['questions']
 
     def location(self, item):
-        return f'/questions'
+        return reverse(item)
 
 class PostViewSitemap(Sitemap):
     changefreq = 'daily'
