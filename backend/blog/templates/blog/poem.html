@@ -1,12 +1,15 @@
 {% extends 'blog/base.html' %}
 {% load static %}
 
+{% load template_tags %}
+
 {% block head %}
-<meta name="description" content="{{ item.poem|slice:':160' }}">
+<meta name="keywords" content="сайт Халикова, стихи {{item.theme}}, стихи, стишки, стихотворения, поэт, поэзия, poems, poetry, читать стихи, читать стихотворения, стихотворения нового времени">
+<meta name="description" content="{{ description }}">
 <link rel="stylesheet" href="{% static 'blog/css/poem.css' %}">
 <link rel="stylesheet" href="{% static 'blog/css/include/switcher.css' %}">
 {% endblock %}
-{% block title %}Стихотворение {{ item.theme }} №{{ item.id }} - halikov.com{% endblock %}
+{% block title %}Стихотворение: {% if item.title %} {{item.title}}{% else %}без названия{% endif %}, {{ item.theme }} | halikov.com{% endblock %}
 
 {% block body %}
     <article class="poem">

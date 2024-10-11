@@ -2,6 +2,7 @@ from django.shortcuts import render
 from .models import *
 from .serializers import PreviewPostSerializer, PostSerializer, PreviewPoemSerializer, PoemSerializer
 from .decorators import post_viewing, get_unread_post
+import re
 
 @get_unread_post
 def about(request, **kwargs):
@@ -28,7 +29,7 @@ def poems(request, **kwargs):
     context = {
         'unread': kwargs['unread'],
         'title': 'Стихи',
-        'description': 'Список стихов владельца данного сайта. Стихи про жизнь и смерть, любовь и разлуку, про животных, про любимые места.',
+        'description': 'Список стихотворений владельца данного сайта. Ознакомиться с творчеством Халикова Ульфата Жэудатовича, начинающего поэта и web-разработчика.',
         'poems': PreviewPoemSerializer(Poem.objects.all(), many=True).data
     }
     return render(request, 'blog/poems.html', context)
@@ -46,12 +47,14 @@ def show_post(request, slug, **kwargs):
 
 @get_unread_post
 def show_poem(request, poem_id, **kwargs):
-    item = Poem.objects.get(id=poem_id)
+    item = PoemSerializer(Poem.objects.get(id=poem_id)).data
+    description = re.sub("^\s+|\n|\r|\s+$", '', item['poem'])
     context = {
         'unread': kwargs['unread'],
         'prev_url': 'poems',
         'title': 'Стихи',
-        'item': PoemSerializer(item).data
+        'item': item,
+        'description': description[:160]
     }
     return render(request, 'blog/poem.html', context)
 

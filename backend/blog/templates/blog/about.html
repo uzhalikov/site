@@ -2,7 +2,8 @@
 {% load static %}
 
 {% block head %}
-<meta name="description" content="{{ description }}">
+<meta name="keywords" content="сайт Халикова, начинающий разработчик, начинающий поэт, поэзия, стихи, стихотворения, разработка, проекты, django, python, советы, гайды, заметки, Санкт-Перебург, питер, спб, web">
+<meta name="description" content="{{ description|slice:':160' }}">
 <link rel="stylesheet" href="{% static 'blog/css/about.css' %}">
 {% endblock %}
 {% block title %}{{ title }} - halikov.com | Про IT, поэзию и жизнь{% endblock %}
