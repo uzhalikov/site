@@ -9,18 +9,17 @@ def about(request, **kwargs):
     context = {
         'unread': kwargs['unread'],
         'title': 'Об авторе',
-        'description': 'Привет!Меня зовут Ульфат Халиков, я живу в Санкт-Перебурге.Последний год я работаю Web разработчиком.Я занимаюсь разработкой сайтов, telegram ботов, изучением английского языка, а еще иногда пишу стихи.Здесь я буду выкладывать советы для начинающих разработчиков, свои стихи, а также информацию о проектах, в которых принимаю участие.Также, я готов ответить на все ваши вопросы, которые вы можете задать на соответствующей странице, либо лично, через социальные сети.',
+        'post': PostSerializer(Post.objects.get(is_published=False)).data
     }
     return render(request, 'blog/about.html', context)
 
 @get_unread_post
 def posts(request, **kwargs):
-
     context = {
         'unread': kwargs['unread'],
         'title': 'Статьи',
         'description': 'Список статей владельца данного сайта. Статьи про жизнь, разработку на таких языках программирования как python/javascript, HTML верстку, CSS стилизацию и прочие проекты.',
-        'posts': PreviewPostSerializer(Post.objects.all(), many=True, context={"request": request}).data
+        'posts': PreviewPostSerializer(Post.objects.filter(is_published=True), many=True, context={"request": request}).data
     }
     return render(request, 'blog/posts.html', context)
 

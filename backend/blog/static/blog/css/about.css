@@ -20,12 +20,13 @@
     justify-content: space-between;
     gap: 10px;
 }
-.about__link{
-    color: #d4a259 !important;
-}
 .about__info p{
+    margin: 3px 0;
     letter-spacing: 2px;
     word-spacing: 3px;
+}
+.about__info a{
+    color: #d4a259 !important;
 }
 @media(max-width: 530px) {
     .about__photo{
