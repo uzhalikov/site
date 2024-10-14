@@ -4,6 +4,9 @@ from .models import *
 
 
 class AboutViewSitemap(Sitemap):
+    changefreq = 'monthly'
+    protocol = 'https'
+
     def items(self):
         return ['about']
 
@@ -12,6 +15,7 @@ class AboutViewSitemap(Sitemap):
 
 class PostSitemap(Sitemap):
     changefreq = 'daily'
+    protocol = 'https'
 
     def items(self):
         return ['posts']
@@ -21,6 +25,7 @@ class PostSitemap(Sitemap):
 
 class PoemSitemap(Sitemap):
     changefreq = 'daily'
+    protocol = 'https'
 
     def items(self):
         return ['poems']
@@ -30,6 +35,7 @@ class PoemSitemap(Sitemap):
 
 class QuestionSitemap(Sitemap):
     changefreq = 'daily'
+    protocol = 'https'
     
     def items(self):
         return ['questions']
@@ -39,15 +45,17 @@ class QuestionSitemap(Sitemap):
 
 class PostViewSitemap(Sitemap):
     changefreq = 'daily'
+    protocol = 'https'
 
     def items(self):
-        return Post.objects.all()
+        return Post.objects.filter(is_published=True)
 
     def location(self, item):
         return f'/post/{item.slug}/'
 
 class PoemViewSitemap(Sitemap):
     changefreq = 'daily'
+    protocol = 'https'
 
     def items(self):
         return Poem.objects.all()
