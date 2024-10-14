@@ -9,9 +9,9 @@ reCAPTCHA_SITE_KEY = os.getenv('reCAPTCHA_SITE_KEY')
 reCAPTCHA_SECRET_KEY = os.getenv('reCAPTCHA_SECRET_KEY')
 
 SECRET_KEY = os.getenv('SECRET_KEY')
-DEBUG = False
+DEBUG = os.getenv('DEBUG', False)
 HOST = 'halikov.com'
-ALLOWED_HOSTS = [HOST]
+ALLOWED_HOSTS = [HOST if not DEBUG else 'localhost']
 CSRF_TRUSTED_ORIGINS = [f'https://{HOST}', f'http://{HOST}']
 CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True

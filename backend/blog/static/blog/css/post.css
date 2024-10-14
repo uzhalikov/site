@@ -39,6 +39,20 @@
 .post__text p{
     margin: 5px 0;
 }
+.post__text a{
+    color: #d4a259 !important;
+}
+.post__text code{
+    border-radius: 5px;
+    padding: 5px;
+    color: #d4a259;
+    background: #000;
+    margin: 0 auto;
+    display: block;
+    width: max-content;
+    min-width: 280px;
+    text-align: center;
+}
 .post__footer{
     display: flex;
     justify-content: space-between;
