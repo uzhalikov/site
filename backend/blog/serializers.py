@@ -101,13 +101,19 @@ class PostSerializer(serializers.ModelSerializer):
 
     def get_prev_p(self, obj):
         try:
-            return obj.get_previous_by_created().slug
+            prev_obj = obj.get_previous_by_created()
+            if prev_obj.is_published:
+                return prev_obj.slug
+            return prev_obj.get_previous_by_created().slug
         except Exception:
             pass
 
     def get_next_p(self, obj):
         try:
-            return obj.get_next_by_created().slug
+            next_obj = obj.get_next_by_created()
+            if next_obj.is_published:
+                return next_obj.slug
+            return next_obj.get_next_by_created().slug
         except Exception:
             pass
 
