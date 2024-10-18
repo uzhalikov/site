@@ -18,7 +18,7 @@ def posts(request, **kwargs):
     context = {
         'unread': kwargs['unread'],
         'title': 'Статьи',
-        'description': 'Список статей владельца данного сайта. Статьи про жизнь, разработку на таких языках программирования как python/javascript, HTML верстку, CSS стилизацию и прочие проекты.',
+        'description': 'Читать авторские статьи на тему программирования с полного нуля, на таких языках программирования как Python и Javascript, без лишней воды и непонятного слэнга.',
         'posts': PreviewPostSerializer(Post.objects.filter(is_published=True), many=True, context={"request": request}).data
     }
     return render(request, 'blog/posts.html', context)
@@ -28,7 +28,7 @@ def poems(request, **kwargs):
     context = {
         'unread': kwargs['unread'],
         'title': 'Стихи',
-        'description': 'Список стихотворений владельца данного сайта. Ознакомиться с творчеством Халикова Ульфата Жэудатовича, начинающего поэта и web-разработчика.',
+        'description': 'Читать авторские стихотворения Халикова Ульфата Жэудатовича, начинающего поэта из Санкт-Петербурга. Только личные произведения, без каких либо современных помощников.',
         'poems': PreviewPoemSerializer(Poem.objects.all(), many=True).data
     }
     return render(request, 'blog/poems.html', context)
@@ -63,7 +63,7 @@ def questions(request, **kwargs):
     context = {
         'unread': kwargs['unread'],
         'title': 'Вопросы',
-        'description': 'Задать любой интересующий вопрос владельцу сайта анонимно, просмотреть список заданных вопросов. Не нашли нужной информации на сайте? Задайте вопрос.',
+        'description': 'Задать любой интересующий вопрос владельцу сайта анонимно, просмотреть список заданных вопросов. Не нашли нужной информации на сайте? Задайте вопрос и получите развернутый ответ',
         'questions': questions,
     }
     return render(request, 'blog/questions.html', context)

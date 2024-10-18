@@ -2,8 +2,8 @@
 {% load static %}
 
 {% block head %}
-<meta name="keywords" content="сайт Халикова, начинающий разработчик, начинающий поэт, поэзия, стихи, стихотворения, разработка, проекты, django, python, советы, гайды, заметки, Санкт-Перебург, питер, спб, web">
-<meta name="description" content="{{ post.post|slice:':160' }}">
+<meta name="keywords" content="разработчик, поэт, поэзия, стихи, стихотворения, разработка, проекты, django, python, советы, гайды, заметки, Санкт-Перебург, питер, спб, web, сайт Халикова, халиков">
+<meta name="description" content="{{ post.post|striptags|slice:':160' }}">
 <link rel="stylesheet" href="{% static 'blog/css/about.css' %}">
 {% endblock %}
 {% block title %}{{ title }} - halikov.com | Про IT, поэзию и жизнь{% endblock %}

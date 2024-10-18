@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block head %}
-<meta name="keywords" content="сайт Халикова, {{item.title}}, читать свежие статьи, статьи, python, django, css, html, js, {% for tag in item.tags %}{{ tag.name }},{% endfor %}">
+<meta name="keywords" content="{{item.title}}, читать свежие статьи, статьи, python, django, css, html, js, {% for tag in item.tags %}{{ tag.name }},{% endfor %}">
 <meta name="description" content="{{ item.post|slice:':160' }}">
 <link rel="stylesheet" href="{% static 'blog/css/post.css' %}">
 <link rel="stylesheet" href="{% static 'blog/css/include/switcher.css' %}">
