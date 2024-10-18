@@ -13,7 +13,7 @@ function setActiveElement(current){
     current.add('section__item__active')
 }
 function addAllContainer(){    
-    fetch('api/questions')
+    fetch('https://halikov.com/api/questions')
     .then(response => response.json())
     .then(result => {
         document.querySelector('.form__content').replaceChildren()
